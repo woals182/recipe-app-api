@@ -26,7 +26,7 @@ class CreateTokenView(ObtainAuthToken):
     renderer_classes = api_settings.DEFAULT_RENDERER_CLASSES
 
 
-class ManageUserView(generics.RetrieveUpadteAPIView):
+class ManageUserView(generics.RetrieveUpdateAPIView):
     """
     Manage the authenticated user.
     """
