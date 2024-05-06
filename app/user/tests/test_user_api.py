@@ -13,11 +13,13 @@ CREATE_USER_URL = reverse('user:create')
 TOKEN_URL = reverse('user:token')
 ME_URL = reverse('user:me')
 
+
 def create_user(**params):
     """
     Create and return a new user.
     """
     return get_user_model().objects.create_user(**params)
+
 
 class PublicUserApiTests(TestCase):
     """
@@ -32,9 +34,9 @@ class PublicUserApiTests(TestCase):
         Test creating a user is successful.
         """
         payload = {
-            'email' : 'test@example.com',
-            'password' : 'testpass123',
-            'name' : 'Test Name',
+            'email': 'test@example.com',
+            'password': 'testpass123',
+            'name': 'Test Name',
         }
         res = self.client.post(CREATE_USER_URL, payload)
 
@@ -49,9 +51,9 @@ class PublicUserApiTests(TestCase):
         """
 
         payload = {
-            'email' : 'test@example.com',
-            'password' : 'testpass123',
-            'name' : 'Test Name',
+            'email': 'test@example.com',
+            'password': 'testpass123',
+            'name': 'Test Name',
         }
         create_user(**payload)
         res = self.client.post(CREATE_USER_URL, payload)
@@ -63,9 +65,9 @@ class PublicUserApiTests(TestCase):
         Test an error is returned if password less than 5 chars.
         """
         payload = {
-            'email' : 'test@example.com',
-            'password' : 'pw',
-            'name' : 'Test name',
+            'email': 'test@example.com',
+            'password': 'pw',
+            'name': 'Test name',
         }
         res = self.client.post(CREATE_USER_URL, payload)
 
