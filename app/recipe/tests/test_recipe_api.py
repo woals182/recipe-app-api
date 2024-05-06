@@ -97,7 +97,7 @@ class PrivateRecipeApiTests(TestCase):
         """
         Test list of recipes is limited to authenticated user.
         """
-        other_user = create_user(email='other@example.com',password='test123')
+        other_user = create_user(email='other@example.com', password='test123')
         create_recipe(user=other_user)
         create_recipe(user=self.user)
 
@@ -185,7 +185,7 @@ class PrivateRecipeApiTests(TestCase):
             self.assertEqual(getattr(recipe, key), value)
         self.assertEqual(recipe.user, self.user)
 
-    def tets_update_user_returns_error(self):
+    def test_update_user_returns_error(self):
         """
         Test changing the recipe user results in an error.
         """
